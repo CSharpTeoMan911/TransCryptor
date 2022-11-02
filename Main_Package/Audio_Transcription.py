@@ -32,6 +32,7 @@ class Audio_File_Transcription_Operation:
                     gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations("transcription warning")
                     gui.GUI_Function_Operator()
 
+
                     if self.model_size == "tiny":
                         selected_model_size = self.model_size
 
@@ -51,6 +52,8 @@ class Audio_File_Transcription_Operation:
                         return None
 
                     language_model = whisper.load_model(selected_model_size)
+
+                    print(self.file_path)
 
                     if self.file_path is not None:
                         transcription_result = language_model.transcribe(self.file_path, fp16=self.gpu_processing)
