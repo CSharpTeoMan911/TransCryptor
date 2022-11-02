@@ -18,7 +18,7 @@ class Binary_File_Assembly_Operation:
     def __Binary_File_Assembly(self):
 
         try:
-            with open(self.file_name, "wb") as wb:
+            with open(r"C:\Users\Teodor Mihail\Desktop\Videos"+self.file_name, "wb") as wb:
                 transcribed_data_binary_data = str(self.transcribed_data).encode("utf-8")
                 wb.write(transcribed_data_binary_data)
         except KeyboardInterrupt:
