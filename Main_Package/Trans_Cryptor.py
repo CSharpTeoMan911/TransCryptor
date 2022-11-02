@@ -128,7 +128,14 @@ def Transcription_Operation(detected_operating_system, returned_dependency_downl
                     gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
                         "file location")
 
-                    selected_input_file_location = gui.GUI_Function_Operator() + r"\\"
+                    path_separator = None
+
+                    if detected_operating_system == "Windows":
+                        path_separator = r"\\"
+                    else:
+                        path_separator = "/"
+
+                    selected_input_file_location = gui.GUI_Function_Operator() + path_separator
 
                     if selected_input_file_location == "_BACK":
                         Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
@@ -174,7 +181,15 @@ def Transcription_Operation(detected_operating_system, returned_dependency_downl
                 if audio_file_transcription_result is not None:
                     gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
                         "file location")
-                    selected_input_file_location = gui.GUI_Function_Operator() + r"\\"
+
+                    path_separator = None
+
+                    if detected_operating_system == "Windows":
+                        path_separator = r"\\"
+                    else:
+                        path_separator = "/"
+
+                    selected_input_file_location = gui.GUI_Function_Operator() + path_separator
 
                     if selected_input_file_location == "_BACK":
                         Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
