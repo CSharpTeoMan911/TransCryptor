@@ -2,7 +2,7 @@ import sys
 
 
 from Main_Package import Audio_Transcription, File_Binary_Data_Manipulation, Graphical_User_Interface_Menus, \
-    Os_Detection_And_Dependency_Installation, Trans_Cryptor
+    Os_Detection_And_Dependency_Installation
 
 model_size = "base"
 gpu_processing = False
@@ -43,11 +43,11 @@ def Processing_Unit_Selection_Sub_Menu(detected_operating_system, returned_depen
     selected_option = gui.GUI_Function_Operator()
 
     if selected_option == "CPU":
-        Trans_Cryptor.gpu_processing = False
+        gpu_processing = False
         Settings_Sub_Menu(detected_operating_system, returned_dependency_download_result)
 
     elif selected_option == "GC":
-        Trans_Cryptor.gpu_processing = True
+        gpu_processing = True
         Settings_Sub_Menu(detected_operating_system, returned_dependency_download_result)
 
     elif selected_option == "_BACK":
@@ -63,22 +63,22 @@ def Model_Selection_Sub_Menu(detected_operating_system, returned_dependency_down
     selected_model_size = gui.GUI_Function_Operator()
 
     if selected_model_size == "tiny":
-        Trans_Cryptor.model_size = selected_model_size
+        model_size = selected_model_size
 
     elif selected_model_size == "base":
-        Trans_Cryptor.model_size = selected_model_size
+        model_size = selected_model_size
         Settings_Sub_Menu(detected_operating_system, returned_dependency_download_result)
 
     elif selected_model_size == "small":
-        Trans_Cryptor.model_size = selected_model_size
+        model_size = selected_model_size
         Settings_Sub_Menu(detected_operating_system, returned_dependency_download_result)
 
     elif selected_model_size == "medium":
-        Trans_Cryptor.model_size = selected_model_size
+        model_size = selected_model_size
         Settings_Sub_Menu(detected_operating_system, returned_dependency_download_result)
 
     elif selected_model_size == "large":
-        Trans_Cryptor.model_size = selected_model_size
+        model_size = selected_model_size
         Settings_Sub_Menu(detected_operating_system, returned_dependency_download_result)
 
     elif selected_model_size == "_BACK":
@@ -122,7 +122,7 @@ def Transcription_Operation(detected_operating_system, returned_dependency_downl
                     Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
 
                 youtube_transcription_result = Audio_Transcription.Audio_Transcription_Operator(
-                    "youtube audio transcription", youtube_link, Trans_Cryptor.model_size, Trans_Cryptor.gpu_processing)
+                    "youtube audio transcription", youtube_link, model_size, gpu_processing)
 
                 if youtube_transcription_result is not None:
                     gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
@@ -158,7 +158,7 @@ def Transcription_Operation(detected_operating_system, returned_dependency_downl
                     Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
 
                 audio_file_transcription_result = Audio_Transcription.Audio_Transcription_Operator(
-                    "audio file transcription", audio_file_path, Trans_Cryptor.model_size, Trans_Cryptor.gpu_processing)
+                    "audio file transcription", audio_file_path, model_size, gpu_processing)
 
                 if audio_file_transcription_result is not None:
                     gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
