@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'TransCryptor=Main_Package.Trans_Cryptor:main_control_menu',
+            'TransCryptor=Main_Package.Trans_Cryptor:main_entry_point',
         ]
     },
     install_requires=[

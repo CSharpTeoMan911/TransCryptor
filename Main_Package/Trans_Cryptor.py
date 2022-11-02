@@ -229,7 +229,7 @@ def main_control_menu(detected_operating_system, returned_dependency_download_re
         sys.exit(0)
 
 
-if __name__ == "__main__":
+def main_entry_point():
     try:
         operating_system = Os_Detection_And_Dependency_Installation.main_operational_controller("os detection", None)
         dependency_download_result = Os_Detection_And_Dependency_Installation.main_operational_controller(
@@ -237,3 +237,7 @@ if __name__ == "__main__":
         main_control_menu(operating_system, dependency_download_result)
     except KeyboardInterrupt:
         sys.exit(0)
+
+
+if __name__ == "__main__":
+    main_entry_point()
