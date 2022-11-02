@@ -7,8 +7,8 @@
 <br>
 <br>
 
-TransCryptor can be used in multiple domanis and/or multiple purposes, such as data science, software engineering, machine learning, <br> 
-movie subtitle generation, or the transcription of pre-recorded meetings at work or school into text. The extracted information can <br>
+TransCryptor can be used in multiple domanis and/or multiple purposes, such as data science, software engineering, machine learning,  
+movie subtitle generation, or the transcription of pre-recorded meetings at work or school into text. The extracted information can 
 be then saved in any file format, desired by the user. 
 
 <br>
@@ -18,7 +18,7 @@ be then saved in any file format, desired by the user.
 
 ## Installation
 
-In order to install *TransCryptor* open Command Prompt or PowerShell on Windows, or any other terminal <br>
+In order to install *TransCryptor* open Command Prompt or PowerShell on Windows, or any other terminal
 on Linux or Mac OS, and type:
 
 <br>
