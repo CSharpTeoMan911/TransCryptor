@@ -18,9 +18,12 @@ class Binary_File_Assembly_Operation:
     def __Binary_File_Assembly(self):
 
         try:
-            with open(self.file_name, "wb") as wb:
-                transcribed_data_binary_data = str(self.transcribed_data).encode("utf-8")
-                wb.write(transcribed_data_binary_data)
+            try:
+                with open(self.file_name, "wb") as wb:
+                    transcribed_data_binary_data = str(self.transcribed_data).encode("utf-8")
+                    wb.write(transcribed_data_binary_data)
+            except FileNotFoundError:
+                print("! ! FILE NOT FOUND ! !")
         except KeyboardInterrupt:
             sys.exit(0)
 
