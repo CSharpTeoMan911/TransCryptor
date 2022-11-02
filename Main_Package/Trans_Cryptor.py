@@ -126,6 +126,14 @@ def Transcription_Operation(detected_operating_system, returned_dependency_downl
 
                 if youtube_transcription_result is not None:
                     gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
+                        "file location")
+
+                    selected_input_file_location = gui.GUI_Function_Operator() + r"\\"
+
+                    if selected_input_file_location == "_BACK":
+                        Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
+
+                    gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
                         "file name selection sub menu")
                     selected_input_file_name = gui.GUI_Function_Operator()
 
@@ -140,8 +148,10 @@ def Transcription_Operation(detected_operating_system, returned_dependency_downl
                     if selected_input_file_name == "_BACK":
                         Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
 
+                    file_name_and_path = selected_input_file_location + complete_file_name
+
                     binary_file_assembly_operation = File_Binary_Data_Manipulation.Binary_File_Assembly_Operation(
-                        youtube_transcription_result, complete_file_name)
+                        youtube_transcription_result, file_name_and_path)
                     binary_file_assembly_operation.Binary_File_Assembly_Initiator()
 
                     Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
@@ -152,6 +162,7 @@ def Transcription_Operation(detected_operating_system, returned_dependency_downl
             elif selected_input == "A":
                 gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
                     "audio file transcription sub menu")
+
                 audio_file_path = gui.GUI_Function_Operator()
 
                 if audio_file_path == "_BACK":
@@ -161,6 +172,13 @@ def Transcription_Operation(detected_operating_system, returned_dependency_downl
                     "audio file transcription", audio_file_path, model_size, gpu_processing)
 
                 if audio_file_transcription_result is not None:
+                    gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
+                        "file location")
+                    selected_input_file_location = gui.GUI_Function_Operator() + r"\\"
+
+                    if selected_input_file_location == "_BACK":
+                        Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
+
                     gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
                         "file name selection sub menu")
                     selected_input_file_name = gui.GUI_Function_Operator()
@@ -176,8 +194,10 @@ def Transcription_Operation(detected_operating_system, returned_dependency_downl
                     if selected_input_file_name == "_BACK":
                         Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
 
+                    file_name_and_path = selected_input_file_location + complete_file_name
+
                     binary_file_assembly_operation = File_Binary_Data_Manipulation.Binary_File_Assembly_Operation(
-                        audio_file_transcription_result, complete_file_name)
+                        audio_file_transcription_result, file_name_and_path)
                     binary_file_assembly_operation.Binary_File_Assembly_Initiator()
 
                     Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)

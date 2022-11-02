@@ -53,7 +53,6 @@ class Audio_File_Transcription_Operation:
 
                     language_model = whisper.load_model(selected_model_size)
 
-                    print(self.file_path)
 
                     if self.file_path is not None:
                         transcription_result = language_model.transcribe(self.file_path, fp16=self.gpu_processing)

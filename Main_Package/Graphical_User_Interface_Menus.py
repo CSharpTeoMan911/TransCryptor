@@ -28,6 +28,9 @@ class Graphical_User_Interface_Menus_Collection_And_Related_Operations:
             elif self.selected_menu_screen == "audio file transcription sub menu":
                 return_value = self.__Audio_File_Transcription_Sub_Menu()
 
+            elif self.selected_menu_screen == "file location":
+                return_value = self.__File_Location_Selection_Menu()
+
             elif self.selected_menu_screen == "file name selection sub menu":
                 return_value = self.__File_Binary_Data_Assembly_File_Name_Selection_Menu()
 
@@ -149,6 +152,19 @@ class Graphical_User_Interface_Menus_Collection_And_Related_Operations:
         print("[]                                  []")
         print("[] ENTER '_BACK' TO GO BACK         []")
         print("||||||||||||||||||||||||||||||||||||||")
+
+        selected_input = input("\n\n[ _ Input ]: ")
+        return selected_input
+
+    def __File_Location_Selection_Menu(self):
+        self.__clear_screen()
+
+        print("|||||||||||||||||||||||||||||||||||||||||")
+        print("[] ENTER THE FULL PATH OF THE LOCATION []")
+        print("[] WHERE THE FILE WILL BE SAVED:       []")
+        print("[]                                     []")
+        print("[] ENTER '_BACK' TO GO BACK            []")
+        print("|||||||||||||||||||||||||||||||||||||||||")
 
         selected_input = input("\n\n[ _ Input ]: ")
         return selected_input
