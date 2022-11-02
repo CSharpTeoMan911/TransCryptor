@@ -1,9 +1,8 @@
 import sys
 
-import Trans_Cryptor
 
 from Main_Package import Audio_Transcription, File_Binary_Data_Manipulation, Graphical_User_Interface_Menus, \
-    Os_Detection_And_Dependency_Installation
+    Os_Detection_And_Dependency_Installation, Trans_Cryptor
 
 model_size = "base"
 gpu_processing = False

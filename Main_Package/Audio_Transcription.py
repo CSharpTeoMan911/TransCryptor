@@ -1,6 +1,6 @@
 import sys
 import os
-import Graphical_User_Interface_Menus
+from Main_Package import Graphical_User_Interface_Menus
 
 
 class Audio_File_Transcription_Operation:
