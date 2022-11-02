@@ -105,7 +105,9 @@ class YouTube_Audio_File_Binary_Extraction_Operation:
 
                 video_audio = youtube_object.streams.filter(only_audio=True).first()
 
-                path = video_audio.download(output_path="..")
+                path = video_audio.download(output_path=".")
+
+
 
                 audio_file_transcription = Audio_File_Transcription_Operation(self.model_size, path,
                                                                               self.gpu_processing, self.operation)
