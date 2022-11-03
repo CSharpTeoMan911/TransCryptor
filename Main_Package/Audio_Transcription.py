@@ -1,5 +1,8 @@
 import sys
 import os
+
+import pytube.exceptions
+
 from Main_Package import Graphical_User_Interface_Menus
 
 
@@ -101,22 +104,56 @@ class YouTube_Audio_File_Binary_Extraction_Operation:
     def __YouTube_Audio_File_Binary_Extraction(self):
         try:
             try:
-                from pytube import YouTube
+                from pytube import YouTube, exceptions
+                try:
+                    try:
+                        try:
+                            try:
+                                try:
+                                    try:
+                                        try:
+                                            try:
+                                                try:
+                                                    try:
+                                                        try:
+                                                            try:
+                                                                youtube_object = YouTube(self.youtube_link)
 
-                youtube_object = YouTube(self.youtube_link)
+                                                                video_audio = youtube_object.streams.filter(
+                                                                    only_audio=True).first()
 
-                video_audio = youtube_object.streams.filter(only_audio=True).first()
+                                                                path = video_audio.download(output_path=".")
 
-                path = video_audio.download(output_path=".")
+                                                                audio_file_transcription = Audio_File_Transcription_Operation(
+                                                                    self.model_size, path,
+                                                                    self.gpu_processing, self.operation)
+                                                                audio_file_transcription_result = audio_file_transcription.Audio_File_Transcription_Initiator()
 
-
-
-                audio_file_transcription = Audio_File_Transcription_Operation(self.model_size, path,
-                                                                              self.gpu_processing, self.operation)
-                audio_file_transcription_result = audio_file_transcription.Audio_File_Transcription_Initiator()
-
-                return audio_file_transcription_result
-
+                                                                return audio_file_transcription_result
+                                                            except ValueError:
+                                                                return None
+                                                        except exceptions.AgeRestrictedError:
+                                                            return None
+                                                    except exceptions.HTMLParseError:
+                                                        return None
+                                                except exceptions.MaxRetriesExceeded:
+                                                    return None
+                                            except exceptions.MembersOnly:
+                                                return None
+                                        except exceptions.Pattern:
+                                            return None
+                                    except exceptions.RecordingUnavailable:
+                                        return None
+                                except exceptions.PytubeError:
+                                    return None
+                            except exceptions.LiveStreamError:
+                                return None
+                        except exceptions.VideoPrivate:
+                            return None
+                    except exceptions.ExtractError:
+                        return None
+                except exceptions.RegexMatchError:
+                    return None
             except ModuleNotFoundError:
                 return None
 

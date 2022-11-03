@@ -95,7 +95,7 @@ class Graphical_User_Interface_Menus_Collection_And_Related_Operations:
     def __Main_Menu_Screen(self):
         self.__clear_screen()
 
-        print("                                                     7PB5~")
+        print("                                                      7PB5~")
         print("                                                     :@@@@B")
         print("                                                      !&@#:")
         print("                      :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&@B!!!~")
