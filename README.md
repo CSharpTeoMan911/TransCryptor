@@ -158,6 +158,37 @@ __________________________
 The amount of RAM/VRAM reuired by each model reflects not only the size of the RAM/VRAM on the device but also the amount of RAM/VRAM required
 to be free at the moment in which the transcription takes place. 
 
+<br>
+<br>
+<br>
+<br>
+
+## Links
+_____________
+
+### Benefits of GPU processing in A.I. 
+
+<br>
+
+https://www.run.ai/guides/gpu-deep-learning/best-gpu-for-deep-learning#:~:text=This%20is%20because%20GPUs%20enable,faster%20than%20non-specialized%20hardware.
+
+<br>
+<br>
+
+### OpenAI Whisper Speech Recognition engine
+
+<br>
+
+https://openai.com/blog/whisper/
+
+<br>
+<br>
+
+### OpenAI Whisper Speech Recognition engine GitHub repository
+
+<br>
+
+https://github.com/openai/whisper
 
 
 
