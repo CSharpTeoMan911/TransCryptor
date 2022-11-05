@@ -22,6 +22,9 @@ class Graphical_User_Interface_Menus_Collection_And_Related_Operations:
             elif self.selected_menu_screen == "transcription sub menu":
                 return_value = self.__Transcription_Sub_Menu()
 
+            elif self.selected_menu_screen == "clear screen":
+                self.__clear_screen()
+
             elif self.selected_menu_screen == "youtube transcription sub menu":
                 return_value = self.__YouTube_Transcription_Sub_Menu()
 

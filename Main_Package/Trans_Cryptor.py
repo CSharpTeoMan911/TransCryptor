@@ -1,6 +1,5 @@
 import sys
 
-
 from Main_Package import Audio_Transcription, File_Binary_Data_Manipulation, Graphical_User_Interface_Menus, \
     Os_Detection_And_Dependency_Installation
 
@@ -251,6 +250,10 @@ def main_control_menu(detected_operating_system, returned_dependency_download_re
                 Transcription_Operation(detected_operating_system, returned_dependency_download_result, False)
 
             elif selected_input == "E":
+                gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
+                    "clear screen")
+                gui.GUI_Function_Operator()
+
                 sys.exit(0)
 
             else:
