@@ -23,62 +23,68 @@ class Audio_File_Transcription_Operation:
 
     def __Audio_File_Transcription(self):
         try:
-
             try:
-
+                import whisper
+                import ffmpeg
                 try:
+                    try:
+                        try:
+                            try:
+                                try:
+                                    selected_model_size = None
 
-                    import whisper
+                                    gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations(
+                                        "transcription warning")
+                                    gui.GUI_Function_Operator()
 
-                    selected_model_size = None
+                                    if self.model_size == "tiny":
+                                        selected_model_size = self.model_size
 
-                    gui = Graphical_User_Interface_Menus.Graphical_User_Interface_Menus_Collection_And_Related_Operations("transcription warning")
-                    gui.GUI_Function_Operator()
+                                    elif self.model_size == "base":
+                                        selected_model_size = self.model_size
 
+                                    elif self.model_size == "small":
+                                        selected_model_size = self.model_size
 
-                    if self.model_size == "tiny":
-                        selected_model_size = self.model_size
+                                    elif self.model_size == "medium":
+                                        selected_model_size = self.model_size
 
-                    elif self.model_size == "base":
-                        selected_model_size = self.model_size
+                                    elif self.model_size == "large":
+                                        selected_model_size = self.model_size
 
-                    elif self.model_size == "small":
-                        selected_model_size = self.model_size
+                                    else:
+                                        return None
 
-                    elif self.model_size == "medium":
-                        selected_model_size = self.model_size
+                                    language_model = whisper.load_model(selected_model_size)
 
-                    elif self.model_size == "large":
-                        selected_model_size = self.model_size
+                                    if self.file_path is not None:
+                                        transcription_result = language_model.transcribe(self.file_path,
+                                                                                         fp16=self.gpu_processing)
 
-                    else:
+                                        if self.operation == "youtube audio transcription":
+                                            os.remove(self.file_path)
+
+                                        return transcription_result["text"]
+
+                                    else:
+
+                                        if self.operation == "youtube audio transcription":
+                                            os.remove(self.file_path)
+
+                                        return None
+                                except ffmpeg.Error:
+                                    return None
+                            except TypeError:
+                                return None
+                        except ValueError:
+                            return None
+                    except FileNotFoundError:
                         return None
-
-                    language_model = whisper.load_model(selected_model_size)
-
-
-                    if self.file_path is not None:
-                        transcription_result = language_model.transcribe(self.file_path, fp16=self.gpu_processing)
-
-                        if self.operation == "youtube audio transcription":
-                            os.remove(self.file_path)
-
-                        return transcription_result["text"]
-
-                    else:
-
-                        if self.operation == "youtube audio transcription":
-                            os.remove(self.file_path)
-
-                        return None
-
-                except:
-                    return None
-
-            except KeyboardInterrupt:
-                sys.exit(0)
-
-        except ModuleNotFoundError:
+                except KeyboardInterrupt:
+                    sys.exit(0)
+            except ModuleNotFoundError:
+                return None
+        except:
             return None
 
 
@@ -104,10 +110,10 @@ class YouTube_Audio_File_Binary_Extraction_Operation:
     def __YouTube_Audio_File_Binary_Extraction(self):
         try:
             try:
-                from pytube import YouTube, exceptions
                 try:
                     try:
                         try:
+                            from pytube import YouTube, exceptions
                             try:
                                 try:
                                     try:
@@ -117,46 +123,54 @@ class YouTube_Audio_File_Binary_Extraction_Operation:
                                                     try:
                                                         try:
                                                             try:
-                                                                youtube_object = YouTube(self.youtube_link)
+                                                                try:
+                                                                    try:
+                                                                        try:
+                                                                            youtube_object = YouTube(self.youtube_link)
 
-                                                                video_audio = youtube_object.streams.filter(
-                                                                    only_audio=True).first()
+                                                                            video_audio = youtube_object.streams.filter(
+                                                                                only_audio=True).first()
 
-                                                                path = video_audio.download(output_path=".")
+                                                                            path = video_audio.download(output_path=".")
 
-                                                                audio_file_transcription = Audio_File_Transcription_Operation(
-                                                                    self.model_size, path,
-                                                                    self.gpu_processing, self.operation)
-                                                                audio_file_transcription_result = audio_file_transcription.Audio_File_Transcription_Initiator()
+                                                                            audio_file_transcription = Audio_File_Transcription_Operation(
+                                                                                self.model_size, path,
+                                                                                self.gpu_processing, self.operation)
+                                                                            audio_file_transcription_result = audio_file_transcription.Audio_File_Transcription_Initiator()
 
-                                                                return audio_file_transcription_result
-                                                            except ValueError:
+                                                                            return audio_file_transcription_result
+                                                                        except ValueError:
+                                                                            return None
+                                                                    except exceptions.AgeRestrictedError:
+                                                                        return None
+                                                                except exceptions.HTMLParseError:
+                                                                    return None
+                                                            except exceptions.MaxRetriesExceeded:
                                                                 return None
-                                                        except exceptions.AgeRestrictedError:
+                                                        except exceptions.MembersOnly:
                                                             return None
-                                                    except exceptions.HTMLParseError:
+                                                    except exceptions.Pattern:
                                                         return None
-                                                except exceptions.MaxRetriesExceeded:
+                                                except exceptions.RecordingUnavailable:
                                                     return None
-                                            except exceptions.MembersOnly:
+                                            except exceptions.PytubeError:
                                                 return None
-                                        except exceptions.Pattern:
+                                        except exceptions.LiveStreamError:
                                             return None
-                                    except exceptions.RecordingUnavailable:
+                                    except exceptions.VideoPrivate:
                                         return None
-                                except exceptions.PytubeError:
+                                except exceptions.ExtractError:
                                     return None
-                            except exceptions.LiveStreamError:
+                            except exceptions.RegexMatchError:
                                 return None
-                        except exceptions.VideoPrivate:
+                        except ModuleNotFoundError:
                             return None
-                    except exceptions.ExtractError:
+                    except TypeError:
                         return None
-                except exceptions.RegexMatchError:
+                except ValueError:
                     return None
-            except ModuleNotFoundError:
+            except FileNotFoundError:
                 return None
-
         except KeyboardInterrupt:
             sys.exit(0)
 
